@@ -1,7 +1,6 @@
 package de.hftstuttgart.springboottodovinko.controllers;
 
 import java.time.Instant;
-import java.time.ZoneId;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +29,6 @@ public class ToDoItemController {
         logger.info("request to GET index");
         ModelAndView modelAndView = new ModelAndView("index");
         modelAndView.addObject("toDoItems", toDoItemRepository.findAll());
-        modelAndView.addObject("today", Instant.now().atZone(ZoneId.systemDefault()).toLocalDate().getDayOfWeek());
         return modelAndView;
     }
 
